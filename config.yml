@@ -1,0 +1,56 @@
+Messages:
+  NoPermMessage: "&7[&aCC&7] У вас нет прав на это!"
+  SuspectNoOnlineMessage: "&7[&aCC&7] Игрок &a%suspect% &7не онлайн."
+  SuspeckIsChecks: "&7[&aCC&7] Игрок &a%suspect% &7уже вызван на проверку."
+  StartCheckMessageModer: "&7[&aCC&7] Вы вызвали игрока &c%suspect% &7на проверку!"
+  StartCheckMessageSuspect: "&7[&aCC&7] &cВас вызвали на проверку! \n&7Отправьте свои данные для связи по кнопке ниже."
+  SuspectNoIsChecksMessage: "&7[&aCC&7] Игрок &a%suspect% &7еще не вызван на проверку."
+  StopCheckMessageModer: "&7[&aCC&7] Вы сняли с игрока &a%suspect% &7проверку."
+  StopCheckMessageSuspect: "&7[&aCC&7] С вас сняли проверку!"
+  BlockCommangMessage: "&7[&aCC&7] Данная команда запрещена при проверке!"
+  ImmunityMessage: "&7[&aCC&7] Игрока &a%suspect% &7нельзя вызвать на проверку. У него иммунитет."
+  CheckByMyselfMessage: "&7[&aCC&7] Вы не можете вызвать самого себя на проверку. "
+  SuspectConfessNoInCheckMessage: "&7[&aCC&7] Вы не находиитесь на проверке."
+  LeaveSuspectModeratorMessage: "&7[&aCC&7] У игрока &a%suspect% &7кончилось время, и он был наказан!"
+  SuspectConfessModeratorMessage: "&7[&aCC&7] Игрок &a%suspect% &7признался в читах и был наказан"
+  ModeratorConnectMessage: "&7[&aCC&7] Игрок &a%suspect% &7отправил вам данные для связи (&cНажмите на них чтобы скопировать&7):"
+  SuspectConnectMessage: "&7[&aCC&7] Вы успешно отправили данные для связи модератору. Ожидайте ответа от него! "
+Titles:
+  StartCheckTitleSuspect: "&cВас вызвали на проверку!"
+  StartCheckSubTitleSuspect: "Вся информация в чате."
+  StopCheckTitleSuspect: "&aС вас сняли проверку"
+  StopCheckSubTitleSuspect: "&aВы можете быть свободны!"
+Buttons:
+  Connect: "&7[&aОтправить даные для связи&7]"
+  Confess: "&7[&cПризнатся в читах&7]"
+BossBar:
+  Title: "&aУ вас осталось %time%"
+  Color: PINK
+  Style: SOLID
+#Если игрок признался в читах
+CommandOnSuspectConfess: "ban %suspect% признание в читах"
+#Если игрок вышел с сервера
+CommandOnSuspectExit: "ban %suspect% отказ от проверки"
+#Сколько давать времени для проверки (Секунды)
+TimeToCheck: 300
+#Запрещать ли игроку дратся при проверке
+GiveDamageInCheck: true
+#Запрещать ли получать урон при проверке
+ReceiveDamageInCheck: true
+#Запрещать ли двигатся при проверке
+MoveInCheck: true
+#Запрещать ли игроку выходить с сервера при проверке
+QuitInCheck: true
+#Запрещать ли ломать блоки при проверке
+BlockBreakInCheck: true
+#Запрещать ли ставить блоки при проверке
+BlockPlaceInCheck: true
+#Запрещать ли выкидывать предметы во время проверки
+DropItemInCheck: true
+#Запррещать ли выкидывать предметы во время проверки
+PickupItemInCheck: true
+#Разрешенные комманды при проверке
+BlockCommand:
+- /exemple
+- /check
+
