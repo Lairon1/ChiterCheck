@@ -1,13 +1,13 @@
 # CheaterCheck
 ## _Плагин для проверок игроков на читы!_
 
-[![Build Status](https://prodma.ru/wp-content/uploads/2009/12/%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0-%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C2.png)](https://drive.google.com/u/1/uc?id=1iOK_zLCExSVM53DMuSlMWCGrNcj2HxFN&export=download)
+[![Build Status](https://prodma.ru/wp-content/uploads/2009/12/%D0%BA%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0-%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C2.png)](https://drive.google.com/file/d/1iXQ3wWQtT-61ojUbZt-G4qtV0Zj9an3q/view?usp=sharing)
 
-Подробнее про плагин и его использованее вы можете прочитать тут ( http://rubukkit.org/ )
+Подробнее про плагин и его использованее вы можете прочитать тут ( http://rubukkit.org/threads/admn-chitercheck-v1-1-plagin-dlja-proverok-igrokov-na-chity-1-12-2.178359/ )
 
 
 
-## API Плагина
+## API Плагина (Работа над ним приостановлена!)
 #### Для начало нам нужно получить нашь плагин.
 ```sh
 CheaterCheck cheaterCheck = (CheaterCheck) Bukkit.getPluginManager().getPlugin("CheaterCheck");
