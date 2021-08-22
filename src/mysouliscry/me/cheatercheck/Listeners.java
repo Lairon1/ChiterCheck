@@ -15,6 +15,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import mysouliscry.me.cheatercheck.managers.CheckManager;
+
 /**
  * @author MySoulIsCry
  *
@@ -23,14 +25,14 @@ import org.bukkit.event.player.PlayerQuitEvent;
 public class Listeners implements Listener {
 
 	private DataConfig config;
-	private Check check;
-	public Listeners(DataConfig config, Check check) {
+	private CheckManager check;
+	public Listeners(DataConfig config, CheckManager check) {
 		this.config = config;
 		this.check = check;
 	}
 	
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void EntityDamageEvent(EntityDamageEvent e) {
+	public void entityDamageEvent(EntityDamageEvent e) {
 		if(e.getEntity() instanceof Player) {			
 			Player player = (Player) e.getEntity();
 			if(check.isChecks(player) && config.getReceiveDamageInCheck()) {
@@ -39,7 +41,7 @@ public class Listeners implements Listener {
 		}
 	}
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void PlayerMoveEvent(PlayerMoveEvent e) {
+	public void playerMoveEvent(PlayerMoveEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getMoveInCheck()) {
 			e.setCancelled(true);
 			Location from = e.getFrom();
@@ -48,13 +50,13 @@ public class Listeners implements Listener {
 		}
 	}
 	@EventHandler
-	public void PlayerQuitEvent(PlayerQuitEvent e) {
+	public void playerQuitEvent(PlayerQuitEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getQuitInCheck() ) {
 			check.suspectLeave(e.getPlayer());
 		}
 	}
 	@EventHandler(ignoreCancelled = true)
-	public void  PlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent e) {
+	public void  playerCommandPreprocessEvent(PlayerCommandPreprocessEvent e) {
 		if(check.isChecks(e.getPlayer())) {
 			if(!config.getBlockCommand().contains(e.getMessage().split(" ")[0])) {
 				e.setCancelled(true);
@@ -64,23 +66,23 @@ public class Listeners implements Listener {
 
 	}
 	@EventHandler(ignoreCancelled = true)
-	public void  BlockBreakEvent(BlockBreakEvent e) {
+	public void  blockBreakEvent(BlockBreakEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getBlockBreakInCheck()) e.setCancelled(true);
 	}
 	@EventHandler(ignoreCancelled = true)
-	public void  BlockPlaceEvent(BlockPlaceEvent e) {
+	public void  blockPlaceEvent(BlockPlaceEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getBlockPlaceInCheck()) e.setCancelled(true);
 	}
 	@EventHandler(priority = EventPriority.MONITOR)
-	public void EntityDamageByEntityEvent(EntityDamageByEntityEvent e) {
+	public void entityDamageByEntityEvent(EntityDamageByEntityEvent e) {
 		if(e.getDamager() instanceof Player) if(check.isChecks((Player)e.getDamager()) && config.getGiveDamageInCheck()) e.setCancelled(true);
 	}
 	@EventHandler
-	public void PlayerDropItemEvent(PlayerDropItemEvent e) {
+	public void playerDropItemEvent(PlayerDropItemEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getDropItemInCheck()) e.setCancelled(true);
 	}
 	@EventHandler
-	public void PlayerPickupItemEvent(PlayerPickupItemEvent e) {
+	public void playerPickupItemEvent(PlayerPickupItemEvent e) {
 		if(check.isChecks(e.getPlayer()) && config.getPickupItemInCheck()) e.setCancelled(true);
 	}
 }

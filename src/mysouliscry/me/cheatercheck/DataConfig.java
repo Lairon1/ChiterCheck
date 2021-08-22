@@ -2,14 +2,12 @@ package mysouliscry.me.cheatercheck;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ClickEvent.Action;
-import net.md_5.bungee.api.chat.TextComponent;
 
 /**
  * @author MySoulIsCry
@@ -39,8 +37,6 @@ public class DataConfig {
 	}
 	public String getStartCheckMessageSuspect() {
 		String startCheckMessageSuspect = ChatColor.translateAlternateColorCodes('&', main.getConfig().getString("Messages.StartCheckMessageSuspect"));
-
-        
 		return startCheckMessageSuspect;
 	}
 	public String[] getStartCheckTitleSuspect() {
@@ -71,8 +67,8 @@ public class DataConfig {
 		title[1] = ChatColor.translateAlternateColorCodes('&', stopCheckSubTitleSuspect);	
 		return title;
 	}
-	public String getCommandOnSuspectExit() {
-		return main.getConfig().getString("CommandOnSuspectExit");
+	public List<String> getCommandOnSuspectExit() {
+		return (List<String>) main.getConfig().getList("CommandOnSuspectExit");
 	}
 	public ArrayList<String> getBlockCommand(){
 		ArrayList listCommand = (ArrayList) main.getConfig().getList("BlockCommand");
@@ -82,7 +78,7 @@ public class DataConfig {
 		String blockCommangMessage = main.getConfig().getString("Messages.BlockCommangMessage");
 		return ChatColor.translateAlternateColorCodes('&', blockCommangMessage);
 	}
-	public String[] getButtons(){
+	public String[] getButtonsSuspect(){
 		String connectButton = main.getConfig().getString("Buttons.Connect");
 		String confess = main.getConfig().getString("Buttons.Confess");
 		String[] buttons = new String[2];
@@ -98,8 +94,8 @@ public class DataConfig {
 		String CheckByMyselfMessage = main.getConfig().getString("Messages.CheckByMyselfMessage");
 		return ChatColor.translateAlternateColorCodes('&', CheckByMyselfMessage);
 	}
-	public String getCommandOnSuspectConfess() {
-		return main.getConfig().getString("CommandOnSuspectConfess");
+	public List<String> getCommandOnSuspectConfess() {
+		return (List<String>) main.getConfig().getList("CommandOnSuspectConfess");
 	}
 	public String getSuspectConfessNoInCheckMessage() {
 		String suspectConfessNoInCheckMessage = main.getConfig().getString("Messages.SuspectConfessNoInCheckMessage");
@@ -113,16 +109,28 @@ public class DataConfig {
 		String leaveSuspectModeratorMessage = main.getConfig().getString("Messages.SuspectConfessModeratorMessage");
 		return ChatColor.translateAlternateColorCodes('&', leaveSuspectModeratorMessage);
 	}
-	public String getBossBarTitle() {
-		String BossBarTitle = main.getConfig().getString("BossBar.Title");
+	public String getBossBarTitleSuspect() {
+		String BossBarTitle = main.getConfig().getString("BossBar.Suspect.Title");
 		return ChatColor.translateAlternateColorCodes('&', BossBarTitle);
 	}
-	public BarColor getBossBarColor() {
-		String BossBarColor = main.getConfig().getString("BossBar.Color");
+	public BarColor getBossBarColorSuspect() {
+		String BossBarColor = main.getConfig().getString("BossBar.Suspect.Color");
 		return BarColor.valueOf(BossBarColor);
 	}
-	public BarStyle getBossBarStyle() {
-		String BossBarStyle = main.getConfig().getString("BossBar.Style");
+	public BarStyle getBossBarStyleSuspect() {
+		String BossBarStyle = main.getConfig().getString("BossBar.Suspect.Style");
+		return BarStyle.valueOf(BossBarStyle);
+	}
+	public String getBossBarTitleModerator() {
+		String BossBarTitle = main.getConfig().getString("BossBar.Moderator.Title");
+		return ChatColor.translateAlternateColorCodes('&', BossBarTitle);
+	}
+	public BarColor getBossBarColorModerator() {
+		String BossBarColor = main.getConfig().getString("BossBar.Moderator.Color");
+		return BarColor.valueOf(BossBarColor);
+	}
+	public BarStyle getBossBarStyleModerator() {
+		String BossBarStyle = main.getConfig().getString("BossBar.Moderator.Style");
 		return BarStyle.valueOf(BossBarStyle);
 	}
 	public String getModeratorConnectMessage() {
@@ -133,6 +141,29 @@ public class DataConfig {
 		String suspectConnectMessage = main.getConfig().getString("Messages.SuspectConnectMessage");
 		return ChatColor.translateAlternateColorCodes('&', suspectConnectMessage);
 	}
+	public String getTimeOutSuspectModeratorMessage() {
+		String timeOutSuspectModeratorMessage = main.getConfig().getString("Messages.TimeOutSuspectModeratorMessage");
+		return ChatColor.translateAlternateColorCodes('&', timeOutSuspectModeratorMessage);
+	}
+	public String[] getButtonsModerator(){
+		String runAgain = main.getConfig().getString("Buttons.RunAgain");
+		String punish = main.getConfig().getString("Buttons.Punish");
+		String[] buttons = new String[2];
+		buttons[0] = ChatColor.translateAlternateColorCodes('&', runAgain);
+		buttons[1] = ChatColor.translateAlternateColorCodes('&', punish);
+		return buttons;
+	}
+	public String getButtonModeratorPunishCMD() {
+		String punish = main.getConfig().getString("Buttons.PunishCMD");
+		return ChatColor.translateAlternateColorCodes('&', punish);
+	}
+	public String getTimeOutSuspectMessage() {
+		String timeOutSuspectMessage = main.getConfig().getString("Messages.TimeOutSuspectMessage");
+		return ChatColor.translateAlternateColorCodes('&', timeOutSuspectMessage);
+	}
+	
+	
+	
 	public int getTimeCheck() { return main.getConfig().getInt("TimeToCheck"); }
 	public boolean getGiveDamageInCheck() { return main.getConfig().getBoolean("GiveDamageInCheck"); }
 	public boolean getReceiveDamageInCheck() { return main.getConfig().getBoolean("ReceiveDamageInCheck"); }
@@ -143,35 +174,3 @@ public class DataConfig {
 	public boolean getDropItemInCheck() { return main.getConfig().getBoolean("DropItemInCheck"); }
 	public boolean getPickupItemInCheck() { return main.getConfig().getBoolean("PickupItemInCheck"); }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

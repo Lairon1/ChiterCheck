@@ -14,7 +14,9 @@ Messages:
   LeaveSuspectModeratorMessage: "&7[&aCC&7] У игрока &a%suspect% &7кончилось время, и он был наказан!"
   SuspectConfessModeratorMessage: "&7[&aCC&7] Игрок &a%suspect% &7признался в читах и был наказан"
   ModeratorConnectMessage: "&7[&aCC&7] Игрок &a%suspect% &7отправил вам данные для связи (&cНажмите на них чтобы скопировать&7):"
-  SuspectConnectMessage: "&7[&aCC&7] Вы успешно отправили данные для связи модератору. Ожидайте ответа от него! "
+  SuspectConnectMessage: "&7[&aCC&7] Вы успешно отправили данные для связи модератору. Ожидайте ответа от него!"
+  TimeOutSuspectModeratorMessage: "&7[&aCC&7] У игрока &a%suspect% &7кончилось время проверки. Дальнейшие действия:"
+  TimeOutSuspectMessage: "&7[&aCC&7] У вас кончилось время проверки. Модератор решит вашу судьбу. "
 Titles:
   StartCheckTitleSuspect: "&cВас вызвали на проверку!"
   StartCheckSubTitleSuspect: "Вся информация в чате."
@@ -23,14 +25,25 @@ Titles:
 Buttons:
   Connect: "&7[&aОтправить даные для связи&7]"
   Confess: "&7[&cПризнатся в читах&7]"
+  RunAgain: "&7[&aЗапустить проверку снова&7]"
+  Punish: "&7[&cНаказать&7]"
+  #Действие если модератор нажал кнопку наказать.
+  PunishCMD: "/ban %suspect% отказ от проверки"
 BossBar:
-  Title: "&aУ вас осталось %time%"
-  Color: PINK
-  Style: SOLID
+  Suspect:
+    Title: "&aУ вас осталось %time%"
+    Color: PINK
+    Style: SOLID
+  Moderator:
+    Title: "&aПроверка для игрока %suspect%. Осталось %time%"
+    Color: GREEN
+    Style: SOLID
 #Если игрок признался в читах
-CommandOnSuspectConfess: "ban %suspect% признание в читах"
+CommandOnSuspectConfess:
+- ban %suspect% признание в читах
 #Если игрок вышел с сервера
-CommandOnSuspectExit: "ban %suspect% отказ от проверки"
+CommandOnSuspectExit:
+- ban %suspect% отказ от проверки
 #Сколько давать времени для проверки (Секунды)
 TimeToCheck: 300
 #Запрещать ли игроку дратся при проверке

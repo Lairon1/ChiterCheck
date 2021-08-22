@@ -8,7 +8,7 @@ import org.bukkit.event.HandlerList;
 public class PlayerCheckStopEvent extends Event implements Cancellable{
 	private Player suspect;
 	private Player moderator;
-	private boolean is—ancelled = false;
+	private boolean isCancelled = false;
 	public static final HandlerList handlers = new HandlerList();
 	
 	
@@ -18,11 +18,11 @@ public class PlayerCheckStopEvent extends Event implements Cancellable{
 	}
 	@Override
 	public boolean isCancelled() {
-		return is—ancelled;
+		return isCancelled;
 	}
 	@Override
 	public void setCancelled(boolean arg0) {
-		this.is—ancelled = arg0;	
+		this.isCancelled = arg0;	
 	}
 	@Override
 	public HandlerList getHandlers() {
